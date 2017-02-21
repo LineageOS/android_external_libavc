@@ -879,12 +879,12 @@ WORD32 ih264d_parse_sps(dec_struct_t *ps_dec, dec_bit_stream_t *ps_bitstrm)
             return ERROR_INV_SPS_PPS_T;
         }
 
-        if((3 == ps_dec->i4_header_decoded) && (ps_dec->u2_pic_wd != u2_pic_wd))
+        if((ps_dec->i4_header_decoded & 1) && (ps_dec->u2_pic_wd != u2_pic_wd))
         {
             ps_dec->u1_res_changed = 1;
             return IVD_RES_CHANGED;
         }
-        if((3 == ps_dec->i4_header_decoded) && (ps_dec->u2_pic_ht != u2_pic_ht))
+        if((ps_dec->i4_header_decoded & 1) && (ps_dec->u2_pic_ht != u2_pic_ht))
         {
             ps_dec->u1_res_changed = 1;
             return IVD_RES_CHANGED;
