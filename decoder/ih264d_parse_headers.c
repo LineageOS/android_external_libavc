@@ -205,6 +205,9 @@ WORD32 ih264d_parse_pps(dec_struct_t * ps_dec, dec_bit_stream_t * ps_bitstrm)
     UWORD8 u1_more_data_flag;
     WORD32 i4_i;
 
+    if(!(ps_dec->i4_header_decoded & 1))
+        return ERROR_INV_SPS_PPS_T;
+
     /*--------------------------------------------------------------------*/
     /* Decode pic_parameter_set_id and find corresponding pic params      */
     /*--------------------------------------------------------------------*/
@@ -230,6 +233,9 @@ WORD32 ih264d_parse_pps(dec_struct_t * ps_dec, dec_bit_stream_t * ps_bitstrm)
         return ERROR_INV_SPS_PPS_T;
     COPYTHECONTEXT("PPS: seq_parameter_set_id",u4_temp);
     ps_sps = &ps_dec->ps_sps[u4_temp];
+
+    if(FALSE == ps_sps->u1_is_valid)
+        return ERROR_INV_SPS_PPS_T;
     ps_pps->ps_sps = ps_sps;
 
     /*--------------------------------------------------------------------*/
@@ -608,7 +614,7 @@ WORD32 ih264d_parse_sps(dec_struct_t *ps_dec, dec_bit_stream_t *ps_bitstrm)
         /* Monochrome is not supported */
         if(ps_seq->i4_chroma_format_idc != 1)
         {
-            return ERROR_INV_SPS_PPS_T;
+            return ERROR_FEATURE_UNAVAIL;
         }
 
         /* reading bit_depth_luma_minus8   */
@@ -617,7 +623,7 @@ WORD32 ih264d_parse_sps(dec_struct_t *ps_dec, dec_bit_stream_t *ps_bitstrm)
 
         if(ps_seq->i4_bit_depth_luma_minus8 != 0)
         {
-            return ERROR_INV_SPS_PPS_T;
+            return ERROR_FEATURE_UNAVAIL;
         }
 
         /* reading bit_depth_chroma_minus8   */
@@ -626,7 +632,7 @@ WORD32 ih264d_parse_sps(dec_struct_t *ps_dec, dec_bit_stream_t *ps_bitstrm)
 
         if(ps_seq->i4_bit_depth_chroma_minus8 != 0)
         {
-            return ERROR_INV_SPS_PPS_T;
+            return ERROR_FEATURE_UNAVAIL;
         }
 
         /* reading qpprime_y_zero_transform_bypass_flag   */
