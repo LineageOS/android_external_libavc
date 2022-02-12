@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "deb10646_844684c1",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 25691
+      },
+      "writtenOn": "2022-02-12T15:52:49Z",
+      "side": 1,
+      "message": "Compiles for and installs on Moto G5 Cedric. THANK YOU!",
+      "revId": "fa2b94d89cf47dfa2a3ad9447f00832f7f900599",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    }
+  ]
+}
