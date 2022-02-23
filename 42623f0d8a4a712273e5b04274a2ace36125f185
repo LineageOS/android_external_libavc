@@ -16,6 +16,23 @@
       "message": "Topic P_asb_2022-02 builds OK for hammerhead",
       "revId": "42623f0d8a4a712273e5b04274a2ace36125f185",
       "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "0bda5c56_062ccfac",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 16185
+      },
+      "writtenOn": "2022-02-23T19:06:18Z",
+      "side": 1,
+      "message": "Topic runs on yellowstone. All good.",
+      "revId": "42623f0d8a4a712273e5b04274a2ace36125f185",
+      "serverId": "1ec6b3db-b2c1-4fa4-84a2-4c7efe89ba71"
     }
   ]
 }
